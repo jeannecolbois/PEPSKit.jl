@@ -117,6 +117,26 @@ function simultaneous_projectors(
     return compute_projector(ec, alg′)
 end
 
+#=
+function simultaneous_projectors(
+    coordinate, enlarged_corners::Array{E, 3}, env, alg::DiagSymmetricProjector
+    ) where {E}
+    coordinate2 = _next_coordinate(coordinate, rowsize, colsize)
+    coordinate3 = _next_coordinate(coordinate2, rowsize, colsize)
+    coordinate4 = _next_coordinate(coordinate3, rowsize, colsize)
+    
+    trunc = truncation_strategy(alg, env.edges[coordinate[1], coordinate2[2:3]...])
+    alg′ = _set_decomposition_truncation(alg, trunc)
+    ec = (
+        enlarged_corners[coordinate4...],
+        enlarged_corners[coordinate...],
+        enlarged_corners[coordinate2...],
+        enlarged_corners[coordinate3...],
+    )
+    
+    return compute_projector(ec, alg′)
+end 
+=#
 """
 $(SIGNATURES)
 
